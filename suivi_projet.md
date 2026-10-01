@@ -23,3 +23,16 @@
 - Automatiser l'import avec import_csv.sh.
 - Sauvegarder les données et tester une restauration complète.
 - Documenter les tests et publier le dépôt Git.
+
+
+## Séance du 30 septembre 2026
+
+- Installation automatique de Dolibarr sur le port 8082 avec install.sh.
+- Création du script import_csv.sh.
+- Simulation réussie avec le fichier tiers_sae.csv.
+- Import de 3 clients et 2 fournisseurs.
+- Deuxième exécution : aucun doublon créé.
+- Vérification des 5 tiers dans l’interface Dolibarr.
+
+À poursuivre : sauvegarde et restauration complète de l’installation
+automatique, puis finalisation de la documentation et du dépôt Git.
