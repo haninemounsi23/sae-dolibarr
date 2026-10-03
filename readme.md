@@ -68,3 +68,4 @@ Vérification du 3 octobre 2026 :
 
 Les sauvegardes et le fichier .env sont exclus du dépôt Git
 car ils peuvent contenir des informations confidentielles.
+La procédure détaillée est disponible dans [le guide de restauration](docs/restauration.md).
