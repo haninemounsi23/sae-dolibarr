@@ -14,9 +14,9 @@ services:
       timeout: 5s
       retries: 30
       start_period: 30s
-
   dolibarr:
-    image: dolibarr/dolibarr:24.0.0
+    build: .
+    image: sae-dolibarr:24.0.0
     depends_on:
       mariadb:
         condition: service_healthy

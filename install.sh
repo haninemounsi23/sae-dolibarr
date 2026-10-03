@@ -15,8 +15,7 @@ echo "Vérification de la configuration..."
 docker compose -p sae-dolibarr-auto -f compose.auto.yaml config --quiet
 
 echo "Démarrage de MariaDB et installation de Dolibarr..."
-docker compose -p sae-dolibarr-auto -f compose.auto.yaml up -d
-
+docker compose -p sae-dolibarr-auto -f compose.auto.yaml up -d --build
 echo "Conteneurs démarrés. L'installation peut encore prendre quelques minutes."
 echo "Adresse : http://localhost:8082"
 echo "Identifiant : admin"
