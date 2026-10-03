@@ -69,3 +69,72 @@ Vérification du 3 octobre 2026 :
 Les sauvegardes et le fichier .env sont exclus du dépôt Git
 car ils peuvent contenir des informations confidentielles.
 La procédure détaillée est disponible dans [le guide de restauration](docs/restauration.md).
+
+
+
+
+## Installation automatique
+
+Prérequis : Git, Docker et Docker Compose V2 installés.
+
+### Préparer le projet sur une nouvelle machine
+
+```bash
+git clone https://github.com/haninemounsi23/sae-dolibarr.git
+cd sae-dolibarr
+cp .env.example .env
+chmod 600 .env
+nano .env
+```
+
+Renseigner ces trois variables avec les mots de passe choisis :
+
+```dotenv
+MARIADB_ROOT_PASSWORD=mot_de_passe_root_a_remplacer
+MARIADB_PASSWORD=mot_de_passe_base_a_remplacer
+DOLI_ADMIN_PASSWORD=mot_de_passe_admin_a_remplacer
+```
+
+Ajouter DOLI_ADMIN_PASSWORD si cette variable est absente
+du fichier exemple. Le fichier .env reste sur la machine
+et ne doit pas être envoyé sur GitHub.
+
+### Lancer l’installation
+
+```bash
+chmod +x install.sh import_csv.sh
+sudo ./install.sh
+```
+
+Attendre la fin de l’installation de Dolibarr, puis ouvrir
+http://localhost:8082.
+
+Identifiant : admin.
+Mot de passe : valeur choisie pour DOLI_ADMIN_PASSWORD
+lors de la première installation.
+
+Dans la configuration des modules, activer la gestion
+des tiers et des fournisseurs si nécessaire.
+
+## Import automatique du CSV
+
+Le fichier data/tiers_sae.csv contient cinq tiers fictifs :
+trois clients et deux fournisseurs.
+
+Simuler l’import :
+
+```bash
+sudo ./import_csv.sh --simulate data/tiers_sae.csv
+```
+
+Si la simulation réussit, effectuer l’import :
+
+```bash
+sudo ./import_csv.sh data/tiers_sae.csv
+```
+
+Vérifier ensuite les cinq tiers dans l’interface Dolibarr
+sur http://localhost:8082.
+
+Un second import du même fichier a été testé :
+les cinq tiers existants sont ignorés, sans création de doublons.
