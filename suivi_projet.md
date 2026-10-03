@@ -36,3 +36,20 @@
 
 À poursuivre : sauvegarde et restauration complète de l’installation
 automatique, puis finalisation de la documentation et du dépôt Git.
+
+
+## Séance n°4
+
+- Date : 1er octobre 2026, après-midi.
+- Travail effectué : synchronisation du projet avec GitHub par SSH et suppression du README vide en doublon. Sauvegarde de la base de données, des documents, des modules personnalisés et de la configuration. Restauration dans un environnement Docker séparé, accessible sur le port 8083. Connexion administrateur et présence des cinq tiers vérifiées.
+- À faire à la prochaine séance : conserver une capture du résultat, compléter la documentation et publier cette avancée sur GitHub.
+- Difficultés rencontrées : MariaDB était arrêté au début de la sauvegarde. Une option incorrecte dans une commande Docker a été corrigée. Adaptation du port et des permissions des fichiers restaurés.
+- Remarques : l’environnement de restauration utilise ses propres conteneurs et volumes.
+
+## Séance n°5
+
+- Date : 3 octobre 2026, à partir de 16 h 21.
+- Travail effectué : reprise du projet et redémarrage de l’environnement de restauration. Vérification de la connexion administrateur et des trois clients et deux fournisseurs sur le port 8083. Capture du résultat et mise à jour de la documentation.
+- À faire à la prochaine séance : vérifier les livrables par rapport au sujet et compléter les éléments manquants.
+- Difficultés rencontrées : aucune difficulté technique constatée lors de la reprise.
+- Remarques : les données restaurées sont toujours présentes après le redémarrage.

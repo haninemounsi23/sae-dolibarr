@@ -1,0 +1,42 @@
+services:
+  mariadb:
+    image: mariadb:11.4
+    environment:
+      MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:?Mot de passe root manquant}"
+      MARIADB_DATABASE: dolibarr
+      MARIADB_USER: dolibarr
+      MARIADB_PASSWORD: "${MARIADB_PASSWORD:?Mot de passe BDD manquant}"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  dolibarr:
+    image: dolibarr/dolibarr:24.0.0
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8083:80"
+    environment:
+      DOLI_INSTALL_AUTO: "0"
+      DOLI_INIT_DEMO: "0"
+      DOLI_DB_HOST: mariadb
+      DOLI_DB_NAME: dolibarr
+      DOLI_DB_USER: dolibarr
+      DOLI_DB_PASSWORD: "${MARIADB_PASSWORD:?Mot de passe BDD manquant}"
+      DOLI_ADMIN_LOGIN: admin
+      DOLI_ADMIN_PASSWORD: "${DOLI_ADMIN_PASSWORD:?Mot de passe administrateur manquant}"
+      DOLI_URL_ROOT: "http://localhost:8083"
+    volumes:
+      - documents:/var/www/documents
+      - custom:/var/www/html/custom
+
+volumes:
+  db_data:
+  documents:
+  custom:
