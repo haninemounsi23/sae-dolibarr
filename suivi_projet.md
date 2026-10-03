@@ -53,3 +53,6 @@ automatique, puis finalisation de la documentation et du dépôt Git.
 - À faire à la prochaine séance : vérifier les livrables par rapport au sujet et compléter les éléments manquants.
 - Difficultés rencontrées : aucune difficulté technique constatée lors de la reprise.
 - Remarques : les données restaurées sont toujours présentes après le redémarrage.
+- Création d’un Dockerfile basé sur Dolibarr 24.0.0.
+- Adaptation de Compose et du script install.sh pour construire l’image.
+- Construction et démarrage testés : connexion réussie et cinq tiers toujours présents.
