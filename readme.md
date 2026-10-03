@@ -138,3 +138,17 @@ sur http://localhost:8082.
 
 Un second import du même fichier a été testé :
 les cinq tiers existants sont ignorés, sans création de doublons.
+
+## Guides techniques
+
+- [Créer une sauvegarde](docs/sauvegarde.md)
+- [Restaurer Dolibarr](docs/restauration.md)
+
+## Construction Docker
+
+Le Dockerfile utilise l’image dolibarr/dolibarr:24.0.0
+et ajoute les informations du projet.
+
+Le script install.sh lance Docker Compose avec --build
+pour construire l’image locale sae-dolibarr:24.0.0
+avant de démarrer les services.
