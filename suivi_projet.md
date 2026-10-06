@@ -2,7 +2,7 @@
 
 * TITRE PROJET : SAE Dolibarr
 * NOM CHEF DE PROJET : Hanine Mounsi
-* NOMS AUTRE MEMBRES EQUIPE : Adam Benadouche
+* NOMS AUTRE MEMBRES EQUIPE : Adam Benhaddouche
 * DATE DEBUT : 24 septembre 2026
 
 
