@@ -32,6 +32,7 @@ services:
       DOLI_ADMIN_LOGIN: admin
       DOLI_ADMIN_PASSWORD: "${DOLI_ADMIN_PASSWORD:?Mot de passe administrateur manquant}"
       DOLI_URL_ROOT: "http://localhost:8082"
+      DOLI_ENABLE_MODULES: "Societe,Fournisseur,Import,Export"
     volumes:
       - documents:/var/www/documents
       - custom:/var/www/html/custom
