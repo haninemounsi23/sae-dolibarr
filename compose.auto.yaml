@@ -33,6 +33,8 @@ services:
       DOLI_ADMIN_PASSWORD: "${DOLI_ADMIN_PASSWORD:?Mot de passe administrateur manquant}"
       DOLI_URL_ROOT: "http://localhost:8082"
       DOLI_ENABLE_MODULES: "Societe,Fournisseur,Import,Export"
+      DOLI_COMPANY_NAME: "SAE51 Adam&Hanine"
+      DOLI_COMPANY_COUNTRYCODE: "FR"
     volumes:
       - documents:/var/www/documents
       - custom:/var/www/html/custom
