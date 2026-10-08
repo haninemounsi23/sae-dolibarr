@@ -1,0 +1,15 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  bats:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installer les dépendances
+        run: sudo apt-get update && sudo apt-get install -y bats php-cli php-mysql
+      - name: Lancer les tests
+        run: ./run_tests.sh

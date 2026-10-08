@@ -182,6 +182,24 @@ et la présence des cinq tiers ont été vérifiés à nouveau.
 
 ![Dolibarr après restauration](docs/restauration-pra.png)
 
+## Tests unitaires
+
+Les tests utilisent [Bats](https://github.com/bats-core/bats-core).
+Aucun conteneur n'est lancé : `docker` est remplacé par un faux
+exécutable, et la validation PHP du CSV est exécutée sans base de données.
+
+```bash
+sudo apt install bats php-cli php-mysql
+./run_tests.sh
+```
+
+| Fichier | Contenu |
+|---|---|
+| tests/scripts.bats | install.sh et import_csv.sh (arguments, appels docker) |
+| tests/csv.bats | règles de vérification du fichier CSV |
+
+Les tests tournent aussi sur GitHub à chaque push (.github/workflows/tests.yml).
+
 ## Documentation
 
 - [Procédure de sauvegarde](docs/sauvegarde.md)
